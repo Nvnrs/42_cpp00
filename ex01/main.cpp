@@ -1,9 +1,22 @@
 #include "Contact.hpp"
+#include "PhoneBook.hpp"
 #include <iostream>
+
+std::string send_prompt(std::string prompt)
+{
+	std::string user_input;
+
+	std::cout << prompt << std::endl;
+	getline(std::cin, user_input);
+	if (std::cin.eof())
+		throw 500;
+	return user_input;
+}
 
 int	main()
 {
-	Contact user1;
+	PhoneBook main_phone_book;
 
-	user1.set_phone_number("0000");
+	main_phone_book.add();
+	main_phone_book.search();
 }
