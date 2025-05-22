@@ -24,5 +24,6 @@ void		print_green(std::string text);
 void		print_blue(std::string text);
 void		print_gray(std::string text);
 std::string	trim_spaces(std::string input);
+int	str_to_int(std::string	str);
 
 #endif

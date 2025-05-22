@@ -1,15 +1,5 @@
 #include "PhoneBook.hpp"
-#include <sstream>
-
-int	str_to_int(std::string	str)
-{
-	int					index;
-	std::stringstream	index_stream;
-
-	index_stream << str;
-	index_stream >> index;
-	return index;
-}
+#include "utils.hpp"
 
 bool PhoneBook::search()
 {
