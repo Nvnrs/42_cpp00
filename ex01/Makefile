@@ -1,7 +1,7 @@
 CC = g++
 CFLAGS = -Wall -Wextra -Werror -std=c++98 -Iincludes
 # CFLAGS = -std=c++98 -Iincludes
-NAME = phonebook_exec
+NAME = my_phonebook
 SRCS = main.cpp \
 		Contact/Contact.cpp \
 		Contact/ContactAsk.cpp \
