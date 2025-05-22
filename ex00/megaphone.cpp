@@ -1,7 +1,3 @@
-// afficher tous les arguments en majuscule
-
-// si pas d'arguments afficher 
-
 #include <iostream>
 
 void	str_to_uppercase(char *str)
