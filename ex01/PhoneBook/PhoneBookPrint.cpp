@@ -1,7 +1,6 @@
 #include "PhoneBook.hpp"
 #include <sstream>
 
-std::string send_prompt(std::string prompt);
 enum e_border_col
 {
 	BORDER_NONE,
@@ -105,97 +104,11 @@ void	print_header()
 	std::cout << std::endl ;
 	print_line_separator();
 }
-int	str_to_int(std::string	str)
-{
-	int					index;
-	std::stringstream	index_stream;
-
-	index_stream << str;
-	index_stream >> index;
-	return index;
-}
-
-void PhoneBook::search()
-{
-	int					index;
-	Contact				*contact;
-	std::string			index_str;
-	e_input_status		status;
-
-	if (this->length() == 0)
-	{
-		std::cout << "The Phonebook are empty" << std::endl;
-		return;
-	}
-	while (true)
-	{
-		index_str = send_prompt("Select a contact with index :");
-		status = number_input_is_valid(index_str);
-		if (status != OK)
-		{
-			handle_errors_input(status);
-			continue;
-		}
-		index = str_to_int(index_str);
-		contact = this->find(index);
-		if (contact == NULL)
-		{
-			std::cout << "The contact doesn't exist." << std::endl;
-			continue;
-		}
-		contact->print();
-		break;
-	}
-}
-bool PhoneBook::length()
-{
-	if (this->index < 0)
-		return 0;
-	return this->index +1;
-}
-
-
-
-Contact *PhoneBook::find(int index)
-{
-	Contact *contact_find;
-
-	contact_find = NULL;
-	if (index < 0 || index >= CONTACTS_MAX || index > this->index)
-		return contact_find;
-	return &this->array[index];
-}
 
 void PhoneBook::print()
 {
 	print_header();
-	for (size_t i = 0; i < CONTACTS_MAX; i++)
+	for (int i = 0; i < this->length(); i++)
 		print_line(i, this->array[i]);
 	print_line_separator();
-}
-
-
-// void PhoneBook::add()
-// {
-
-// }
-
-
-void PhoneBook::add()
-{
-	Contact new_contact;
-
-
-		
-	while (new_contact.set_first_name(
-		send_prompt("First name")) != OK);
-	// while (new_contact.set_last_name(
-	// 	send_prompt("Last name")) != OK);
-	// while (new_contact.set_nickname(
-	// 	send_prompt("Nickname")) != OK);
-	// while (new_contact.set_phone_number(
-	// 	send_prompt("Phone number")) != OK);
-	// while (new_contact.set_darkest_secret(
-	// 	send_prompt("Darkest secret")) != OK);
-	// this->push(new_contact);
 }

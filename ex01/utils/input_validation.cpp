@@ -6,21 +6,14 @@
 /*   By: nveneros <nveneros@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/21 17:33:19 by nveneros          #+#    #+#             */
-/*   Updated: 2025/05/21 19:26:27 by nveneros         ###   ########.fr       */
+/*   Updated: 2025/05/22 18:45:42 by nveneros         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include <string>
+#include "utils.hpp"
 
-enum e_input_status
-{
-	OK,
-	EMPTY,
-	ONLY_SPACES,
-	NOT_DIGITS,
-	CTRL_D
-};
 
 // CHECKS
 bool	string_contain_only_space(std::string input)
@@ -49,13 +42,13 @@ enum e_input_status handle_errors_input(enum e_input_status status)
 	switch (status)
 	{
 	case EMPTY:
-	std::cout << "The field can't empty !" << std::endl;
+		print_red("The input can't be empty!\n");
 		break;
 	case ONLY_SPACES:
-	std::cout << "The field can't contains only spaces/tabs !" << std::endl;
+		print_red("The input can't contain only spaces or tabs!\n");
 		break;
 	case NOT_DIGITS:
-	std::cout << "The field must be contains only digits" << std::endl;
+		print_red("The input must contain only digits!\n");
 		break;
 	default:
 		break;

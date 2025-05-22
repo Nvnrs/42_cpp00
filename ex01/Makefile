@@ -1,11 +1,15 @@
 CC = g++
-# CFLAGS = -Wall -Wextra -Werror -std=c++98
-CFLAGS = -std=c++98
-NAME = phonebook
+CFLAGS = -Wall -Wextra -Werror -std=c++98 -Iincludes
+# CFLAGS = -std=c++98 -Iincludes
+NAME = phonebook_exec
 SRCS = main.cpp \
-		Contact.cpp \
-		PhoneBook.cpp \
-		inputValidation.cpp
+		Contact/Contact.cpp \
+		Contact/ContactAsk.cpp \
+		PhoneBook/PhoneBook.cpp \
+		PhoneBook/PhoneBookPrint.cpp \
+		utils/input_validation.cpp \
+		utils/utils.cpp
+
 OBJS = $(SRCS:.cpp=.o)
 
 %.o: %.cpp

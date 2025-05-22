@@ -2,7 +2,7 @@
 #define CONTACT_H
 #include <iostream>
 #include <string>
-#include "inputValidation.hpp"
+#include "utils.hpp"
 
 
 class Contact
@@ -19,6 +19,11 @@ class Contact
 		enum e_input_status	set_nickname(std::string input);
 		enum e_input_status	set_phone_number(std::string input);
 		enum e_input_status	set_darkest_secret(std::string input);
+		bool ask_first_name();
+		bool ask_last_name();
+		bool ask_nickname();
+		bool ask_phone_number();
+		bool ask_darkest_secret();
 		void print();
 
 };
