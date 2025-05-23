@@ -31,7 +31,7 @@ bool PhoneBook::search()
 		contact = this->find(index);
 		if (contact == NULL)
 		{
-			std::cout << "The contact doesn't exist." << std::endl;
+			print_red("The contact doesn't exist.\n");
 			continue;
 		}
 		contact->print();
