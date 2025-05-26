@@ -1,6 +1,6 @@
 CC = g++
-# CFLAGS = -Wall -Wextra -Werror -std=c++98 -Iincludes
-CFLAGS = -std=c++98 -Iincludes
+CFLAGS = -Wall -Wextra -Werror -std=c++98
+# CFLAGS = -std=c++98
 NAME = dream_job
 SRCS = tests.cpp \
 		Account.cpp \

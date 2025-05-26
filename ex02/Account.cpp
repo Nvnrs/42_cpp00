@@ -23,10 +23,6 @@ int	Account::getNbWithdrawals( void )
 {
 	return _totalNbWithdrawals;
 }
-// void	Account::displayAccountsInfos( void )
-// {
-
-// }
 
 void	printVal(std::string key, int val, bool semicolon)
 {
@@ -67,8 +63,6 @@ void Account::makeDeposit( int deposit )
 	this->_amount += deposit;
 	Account::_totalNbDeposits++;
 	Account::_totalAmount += deposit;
-
-	// [19920104_091532] index:0;p_amount:42;deposit:5;amount:47;nb_deposits:1
 	Account::_displayTimestamp();
 	printVal("index", this->_accountIndex, true);
 	printVal("p_amount", amountBeforeDeposit, true);
@@ -92,21 +86,28 @@ int		Account::checkAmount( void ) const
 	return this->_amount;
 }
 
+void	print_time(int time)
+{
+	if (time < 10)
+		std::cout << '0' << time;
+	else
+		std::cout << time;
+}
+
 
 void	Account::_displayTimestamp( void )
 {
    	std::time_t t = std::time(0);
     std::tm* now = std::localtime(&t);
-    std::cout << "["
-		<< (now->tm_year + 1900)
-         << (now->tm_mon + 1)
-         <<  now->tm_mday
-         <<  '_'
-         <<  now->tm_hour
-         <<  now->tm_min
-         <<  now->tm_sec
-         << "] ";
-	// std::cout << "[19920104_091532] ";
+    std::cout << "[";
+    std::cout << now->tm_year + 1900;
+	print_time(now->tm_mon + 1);
+	print_time(now->tm_mday);
+    std::cout << "_";
+	print_time(now->tm_hour);
+	print_time(now->tm_min);
+	print_time(now->tm_sec);
+    std::cout << "] ";
 }
 
 void	Account::displayStatus( void ) const
